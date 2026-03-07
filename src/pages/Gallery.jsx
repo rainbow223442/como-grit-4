@@ -122,7 +122,7 @@ export default function Gallery() {
 
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-slate-900/95 via-slate-900/98 to-black/95 backdrop-blur-lg animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fadeIn"
           onClick={handleClose}
         >
           <div className="relative w-full h-full flex flex-col items-center justify-center p-4 sm:p-6" onClick={(e) => e.stopPropagation()}>
@@ -137,7 +137,7 @@ export default function Gallery() {
 
             <button
               onClick={handleClose}
-              className="absolute top-6 right-6 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-3 transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 z-20 border border-white/20 hover:border-white/40 rounded-xl"
+              className="absolute top-6 right-6 text-white hover:text-white/80 p-3 transition-all duration-300 hover:scale-110 active:scale-95 z-20"
               aria-label="Close"
             >
               <X className="w-6 h-6" />
@@ -145,18 +145,18 @@ export default function Gallery() {
 
             <button
               onClick={handlePrev}
-              className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-3 sm:p-4 transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 z-20 border border-white/20 hover:border-white/40 rounded-xl"
+              className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 transition-all duration-300 hover:scale-110 active:scale-95 z-20"
               aria-label="Previous image"
             >
-              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" />
+              <ChevronLeft className="w-8 h-8 sm:w-10 sm:h-10" />
             </button>
 
             <button
               onClick={handleNext}
-              className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-3 sm:p-4 transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 z-20 border border-white/20 hover:border-white/40 rounded-xl"
+              className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 transition-all duration-300 hover:scale-110 active:scale-95 z-20"
               aria-label="Next image"
             >
-              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
+              <ChevronRight className="w-8 h-8 sm:w-10 sm:h-10" />
             </button>
 
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-2xl z-20 border border-white/20 hover:border-white/40 transition-colors">
