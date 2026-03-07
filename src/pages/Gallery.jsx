@@ -168,20 +168,7 @@ export default function Gallery() {
               </p>
             </div>
 
-            <div className="absolute bottom-8 right-8 flex gap-2 z-20 animate-buttonsSlideUp">
-              <button
-                onClick={handlePrev}
-                className="text-white/60 hover:text-white transition-colors duration-300 text-xs sm:text-sm font-medium px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 hover:scale-105"
-              >
-                Prev
-              </button>
-              <button
-                onClick={handleNext}
-                className="text-white/60 hover:text-white transition-colors duration-300 text-xs sm:text-sm font-medium px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 hover:scale-105"
-              >
-                Next
-              </button>
-            </div>
+          
           </div>
         </div>
       )}
