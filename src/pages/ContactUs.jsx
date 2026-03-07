@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Building2, User } from 'lucide-react';
+import { Phone, Mail, MapPin, Building2, User, CircleCheck as CheckCircle2 } from 'lucide-react';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -42,7 +42,7 @@ export default function ContactUs() {
 
   const contactInfo = {
     companyName: "COMO GRIT d.o.o",
-    address: "Industrial Zone, Street Name 123, 10000 Zagreb, Croatia",
+    address: "Rooseveltova 12, 21000 Split, Croatia",
     registrationNumber: "VAT: HR12345678901",
     phone: "+385 1 234 5678",
     email: "service@comogrit.com",
@@ -54,37 +54,40 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-black">
       <div className="pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
 
-          <div className="text-center mb-16 sm:mb-20">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Contact Us</h1>
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <div className="h-1 w-12 bg-amber-500"></div>
-              <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-              <div className="h-1 w-12 bg-amber-500"></div>
+          <div className="text-center mb-16 sm:mb-24">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Get In Touch
+            </h1>
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="h-1 w-12 bg-blue-500"></div>
+              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+              <div className="h-1 w-12 bg-blue-500"></div>
             </div>
-            <p className="text-base sm:text-lg text-neutral-300 max-w-2xl mx-auto leading-relaxed px-4">
-              Get in touch with our team. We're here to answer your questions and discuss your metal fabrication project needs.
+            <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed px-4">
+              Contact our team to discuss your metal fabrication project or schedule a consultation
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-16">
 
-            <div className="bg-neutral-800 rounded-lg shadow-lg p-8 border border-neutral-700 hover:border-amber-500 transition-colors duration-300">
-              <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-2">
-                <div className="w-1 h-6 bg-amber-500"></div>
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl shadow-2xl p-6 sm:p-8 border border-slate-700 hover:border-blue-500 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-blue-600"></div>
                 Send us a message
               </h2>
 
               {submitted ? (
-                <div className="bg-neutral-700/50 border-2 border-amber-500 rounded-lg p-8 text-center">
-                  <h3 className="text-2xl font-bold text-amber-400 mb-2">Thank You!</h3>
-                  <p className="text-neutral-300">We've received your message and will get back to you soon.</p>
+                <div className="bg-emerald-500/10 border-2 border-emerald-500/50 rounded-lg p-8 text-center backdrop-blur-sm">
+                  <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto mb-2" />
+                  <h3 className="text-2xl font-bold text-emerald-300 mb-2">Thank You!</h3>
+                  <p className="text-emerald-200">We've received your message and will get back to you soon.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label htmlFor="fullName" className="block text-sm font-semibold text-white mb-2">
                       Full Name *
@@ -96,7 +99,7 @@ export default function ContactUs() {
                       required
                       value={formData.fullName}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-600 rounded bg-neutral-900 text-white placeholder-neutral-500 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                      className="w-full px-4 py-3 border border-slate-600 rounded-lg bg-slate-900/50 text-white placeholder-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 focus:outline-none transition-all"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -111,7 +114,7 @@ export default function ContactUs() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-600 rounded bg-neutral-900 text-white placeholder-neutral-500 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                      className="w-full px-4 py-3 border border-slate-600 rounded-lg bg-slate-900/50 text-white placeholder-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 focus:outline-none transition-all"
                       placeholder="Your company name"
                     />
                   </div>
@@ -127,7 +130,7 @@ export default function ContactUs() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-600 rounded bg-neutral-900 text-white placeholder-neutral-500 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                      className="w-full px-4 py-3 border border-slate-600 rounded-lg bg-slate-900/50 text-white placeholder-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 focus:outline-none transition-all"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -143,7 +146,7 @@ export default function ContactUs() {
                       required
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-600 rounded bg-neutral-900 text-white placeholder-neutral-500 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                      className="w-full px-4 py-3 border border-slate-600 rounded-lg bg-slate-900/50 text-white placeholder-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 focus:outline-none transition-all"
                       placeholder="What is this regarding?"
                     />
                   </div>
@@ -155,26 +158,26 @@ export default function ContactUs() {
                     <textarea
                       id="message"
                       name="message"
-                      rows={6}
+                      rows={5}
                       required
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-600 rounded bg-neutral-900 text-white placeholder-neutral-500 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all resize-none"
+                      className="w-full px-4 py-3 border border-slate-600 rounded-lg bg-slate-900/50 text-white placeholder-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 focus:outline-none transition-all resize-none"
                       placeholder="Tell us more about your fabrication project..."
                     />
                   </div>
 
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3 pt-2">
                     <input
                       type="checkbox"
                       id="gdprConsent"
                       name="gdprConsent"
                       checked={formData.gdprConsent}
                       onChange={handleChange}
-                      className="mt-1 w-4 h-4 border-neutral-600 bg-neutral-900 accent-amber-500 cursor-pointer"
+                      className="mt-1 w-4 h-4 border-slate-600 bg-slate-900 accent-blue-500 cursor-pointer"
                       required
                     />
-                    <label htmlFor="gdprConsent" className="text-sm text-neutral-300 leading-relaxed cursor-pointer">
+                    <label htmlFor="gdprConsent" className="text-xs sm:text-sm text-slate-300 leading-relaxed cursor-pointer">
                       I agree to the processing of my personal data in accordance with GDPR regulations.
                       My data will only be used to respond to this inquiry.
                     </label>
@@ -182,7 +185,7 @@ export default function ContactUs() {
 
                   <button
                     type="submit"
-                    className="w-full bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded font-semibold transition-all duration-300 shadow-lg hover:shadow-amber-500/30 active:scale-98 border border-amber-500/30 hover:border-amber-400"
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/50 active:scale-95 mt-6"
                   >
                     Send Message
                   </button>
@@ -190,48 +193,46 @@ export default function ContactUs() {
               )}
             </div>
 
-            <div className="bg-neutral-800 rounded-lg shadow-lg p-8 border border-neutral-700 hover:border-amber-500 transition-colors duration-300">
-              <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-2">
-                <div className="w-1 h-6 bg-amber-500"></div>
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl shadow-2xl p-6 sm:p-8 border border-slate-700 hover:border-blue-500 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-blue-600"></div>
                 Contact Information
               </h2>
 
               <div className="space-y-6">
-                <div>
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-neutral-700 rounded flex items-center justify-center border border-neutral-600">
-                        <Building2 className="w-6 h-6 text-amber-500" />
-                      </div>
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center border border-blue-500/30">
+                      <Building2 className="w-6 h-6 text-blue-400" />
                     </div>
-                    <div>
-                      <h3 className="font-bold text-white mb-1">{contactInfo.companyName}</h3>
-                      <p className="text-neutral-400 text-sm">{contactInfo.registrationNumber}</p>
-                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white mb-1 text-sm sm:text-base">{contactInfo.companyName}</h3>
+                    <p className="text-slate-400 text-xs sm:text-sm">{contactInfo.registrationNumber}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-neutral-700 rounded flex items-center justify-center border border-neutral-600">
-                      <MapPin className="w-6 h-6 text-amber-500" />
+                    <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center border border-blue-500/30">
+                      <MapPin className="w-6 h-6 text-blue-400" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-white mb-1">Address</h3>
-                    <p className="text-neutral-400 text-sm">{contactInfo.address}</p>
+                    <h3 className="font-bold text-white mb-1 text-sm sm:text-base">Address</h3>
+                    <p className="text-slate-400 text-xs sm:text-sm">{contactInfo.address}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-neutral-700 rounded flex items-center justify-center border border-neutral-600">
-                      <Phone className="w-6 h-6 text-amber-500" />
+                    <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center border border-blue-500/30">
+                      <Phone className="w-6 h-6 text-blue-400" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-white mb-1">Phone</h3>
-                    <a href={`tel:${contactInfo.phone}`} className="text-amber-400 hover:text-amber-300 text-sm font-medium transition-colors">
+                    <h3 className="font-bold text-white mb-1 text-sm sm:text-base">Phone</h3>
+                    <a href={`tel:${contactInfo.phone}`} className="text-blue-400 hover:text-blue-300 text-xs sm:text-sm font-medium transition-colors">
                       {contactInfo.phone}
                     </a>
                   </div>
@@ -239,33 +240,33 @@ export default function ContactUs() {
 
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-neutral-700 rounded flex items-center justify-center border border-neutral-600">
-                      <Mail className="w-6 h-6 text-amber-500" />
+                    <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center border border-blue-500/30">
+                      <Mail className="w-6 h-6 text-blue-400" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-white mb-1">Email</h3>
-                    <a href={`mailto:${contactInfo.email}`} className="text-amber-400 hover:text-amber-300 text-sm font-medium transition-colors">
+                    <h3 className="font-bold text-white mb-1 text-sm sm:text-base">Email</h3>
+                    <a href={`mailto:${contactInfo.email}`} className="text-blue-400 hover:text-blue-300 text-xs sm:text-sm font-medium transition-colors">
                       {contactInfo.email}
                     </a>
                   </div>
                 </div>
 
-                <div className="border-t border-neutral-700 pt-6 mt-6">
-                  <h3 className="font-bold text-white mb-4 flex items-center gap-2">
-                    <User className="w-5 h-5 text-amber-500" />
+                <div className="border-t border-slate-700 pt-6 mt-6">
+                  <h3 className="font-bold text-white mb-4 flex items-center gap-2 text-sm sm:text-base">
+                    <User className="w-5 h-5 text-blue-400" />
                     Key Contacts
                   </h3>
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     {contactInfo.keyStaff.map((staff, idx) => (
-                      <div key={idx} className="bg-neutral-900/50 rounded p-4 border border-neutral-700 hover:border-amber-500/50 transition-colors">
-                        <h4 className="font-semibold text-white text-sm mb-1">{staff.name}</h4>
-                        <p className="text-amber-400 text-xs font-medium mb-2">{staff.role}</p>
+                      <div key={idx} className="bg-slate-900/40 rounded-lg p-3 sm:p-4 border border-slate-700 hover:border-blue-500/50 transition-colors">
+                        <h4 className="font-semibold text-white text-xs sm:text-sm mb-1">{staff.name}</h4>
+                        <p className="text-blue-400 text-xs font-bold mb-2">{staff.role}</p>
                         <div className="space-y-1">
-                          <a href={`tel:${staff.phone}`} className="block text-neutral-400 hover:text-amber-400 text-xs transition-colors">
+                          <a href={`tel:${staff.phone}`} className="block text-slate-400 hover:text-blue-400 text-xs transition-colors">
                             {staff.phone}
                           </a>
-                          <a href={`mailto:${staff.email}`} className="block text-neutral-400 hover:text-amber-400 text-xs transition-colors">
+                          <a href={`mailto:${staff.email}`} className="block text-slate-400 hover:text-blue-400 text-xs transition-colors truncate">
                             {staff.email}
                           </a>
                         </div>
@@ -277,25 +278,27 @@ export default function ContactUs() {
             </div>
           </div>
 
-          <div className="bg-neutral-800 rounded-lg shadow-lg overflow-hidden border border-neutral-700">
-            <div className="p-6 border-b border-neutral-700">
-              <h2 className="text-2xl font-bold text-white flex items-center gap-3">
-                <MapPin className="w-6 h-6 text-amber-500" />
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border border-slate-700 hover:border-blue-500 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
+            <div className="p-6 sm:p-8 border-b border-slate-700 bg-gradient-to-r from-slate-800 to-slate-900">
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3 mb-2">
+                <MapPin className="w-6 h-6 text-blue-400" />
                 Our Location
               </h2>
+              <p className="text-slate-400 text-xs sm:text-sm mt-2">Rooseveltova 12, 21000 Split, Croatia</p>
             </div>
-            <div className="w-full h-96">
+            <div className="w-full h-96 bg-slate-900">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2780.8157958669346!2d15.9658!3d45.8150!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDQ4JzU0LjAiTiAxNcKwNTcnNTYuOSJF!5e0!3m2!1sen!2shr!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1446.9875022032882!2d16.451569238962932!3d43.50285698829211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRooseveltova%2012%2C%2021000%20Split%2C%20Croatia!5e0!3m2!1sen!2s!4v1772888431955!5m2!1sen!2s"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="COMO GRIT Location"
+                title="COMO GRIT Location - Rooseveltova 12, Split, Croatia"
                 className="w-full h-full"
               ></iframe>
+              
             </div>
           </div>
 

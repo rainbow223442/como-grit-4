@@ -71,20 +71,16 @@ export default function Gallery() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-neutral-900">
+    <div className="min-h-screen bg-white">
       <div className="pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
 
           <div className="text-center mb-12 sm:mb-20">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
               Our Expertise in Every Detail
             </h1>
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="h-1 w-12 bg-amber-500"></div>
-              <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-              <div className="h-1 w-12 bg-amber-500"></div>
-            </div>
-            <p className="text-base sm:text-lg text-neutral-300 max-w-2xl mx-auto leading-relaxed px-4">
+            <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed px-4">
               Explore our portfolio of metal fabrication projects and manufacturing capabilities
             </p>
           </div>
@@ -94,7 +90,7 @@ export default function Gallery() {
               <div
                 key={image.id}
                 onClick={() => handleImageClick(index)}
-                className={`group relative cursor-pointer overflow-hidden bg-neutral-800 shadow-sm hover:shadow-2xl transition-all duration-500 border border-neutral-700 hover:border-amber-500 ${
+                className={`group relative cursor-pointer overflow-hidden bg-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 border-2 border-slate-200 hover:border-blue-600 rounded-lg ${
                   isLoading ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
                 } ${
                   (index % 7 === 0 || index % 7 === 4) ? 'row-span-2' : 'aspect-square'
@@ -111,14 +107,14 @@ export default function Gallery() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
 
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/20 transition-colors duration-300"></div>
               </div>
             ))}
           </div>
 
           {galleryImages.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-slate-500 text-lg">No images to display</p>
+              <p className="text-slate-600 text-lg">No images to display</p>
             </div>
           )}
         </div>
@@ -126,47 +122,62 @@ export default function Gallery() {
 
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/98 backdrop-blur-md animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-slate-900/95 via-slate-900/98 to-black/95 backdrop-blur-lg animate-fadeIn"
           onClick={handleClose}
         >
-          <div className="relative w-full h-full max-w-7xl mx-auto p-4 sm:p-8 flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+          <div className="relative w-full h-full flex flex-col items-center justify-center p-4 sm:p-6" onClick={(e) => e.stopPropagation()}>
 
-            <div className="relative w-full h-full flex items-center justify-center">
+            <div className="relative w-full h-full max-w-6xl flex items-center justify-center">
               <img
                 src={selectedImage.url.replace('w=800', 'w=1600')}
                 alt={selectedImage.title}
-                className="max-w-full max-h-full object-contain animate-scaleIn border border-amber-500/30"
+                className="max-w-full max-h-[80vh] object-contain animate-scaleIn rounded-xl shadow-2xl"
               />
             </div>
 
             <button
               onClick={handleClose}
-              className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-neutral-800/90 hover:bg-neutral-700 backdrop-blur-sm rounded-full p-2 sm:p-3 transition-all duration-200 shadow-xl hover:scale-110 active:scale-95 z-10 border border-neutral-600 hover:border-amber-500"
+              className="absolute top-6 right-6 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-3 transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 z-20 border border-white/20 hover:border-white/40 rounded-xl"
               aria-label="Close"
             >
-              <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              <X className="w-6 h-6" />
             </button>
 
             <button
               onClick={handlePrev}
-              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-neutral-800/90 hover:bg-neutral-700 backdrop-blur-sm rounded-full p-2 sm:p-3 transition-all duration-200 shadow-xl hover:scale-110 active:scale-95 z-10 border border-neutral-600 hover:border-amber-500"
+              className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-3 sm:p-4 transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 z-20 border border-white/20 hover:border-white/40 rounded-xl"
               aria-label="Previous image"
             >
-              <ChevronLeft className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
+              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" />
             </button>
 
             <button
               onClick={handleNext}
-              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-neutral-800/90 hover:bg-neutral-700 backdrop-blur-sm rounded-full p-2 sm:p-3 transition-all duration-200 shadow-xl hover:scale-110 active:scale-95 z-10 border border-neutral-600 hover:border-amber-500"
+              className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-3 sm:p-4 transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 z-20 border border-white/20 hover:border-white/40 rounded-xl"
               aria-label="Next image"
             >
-              <ChevronRight className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
+              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
             </button>
 
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-neutral-900/90 backdrop-blur-sm px-4 sm:px-5 py-2 rounded shadow-lg z-10 border border-neutral-700">
-              <p className="text-amber-400 text-xs sm:text-sm font-medium">
-                {currentIndex + 1} / {galleryImages.length}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-2xl z-20 border border-white/20 hover:border-white/40 transition-colors">
+              <p className="text-white text-sm font-medium">
+                {currentIndex + 1} <span className="text-white/60">of</span> {galleryImages.length}
               </p>
+            </div>
+
+            <div className="absolute bottom-8 right-8 flex gap-2 z-20">
+              <button
+                onClick={handlePrev}
+                className="text-white/60 hover:text-white transition-colors text-xs sm:text-sm font-medium px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20"
+              >
+                Prev
+              </button>
+              <button
+                onClick={handleNext}
+                className="text-white/60 hover:text-white transition-colors text-xs sm:text-sm font-medium px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20"
+              >
+                Next
+              </button>
             </div>
           </div>
         </div>
