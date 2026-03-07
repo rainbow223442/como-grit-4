@@ -43,7 +43,6 @@ export default function ContactUs() {
   const contactInfo = {
     companyName: "COMO GRIT d.o.o",
     address: "Rooseveltova 12, 21000 Split, Croatia",
-    registrationNumber: "VAT: HR12345678901",
     phone: "+385 1 234 5678",
     email: "service@comogrit.com",
     keyStaff: [
