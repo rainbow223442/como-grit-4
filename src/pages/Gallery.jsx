@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Gallery() {
+  const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -75,15 +77,20 @@ export default function Gallery() {
       <div className="pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
 
-          <div className="text-center mb-12 sm:mb-20 animate-fadeInDown">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-              Our Expertise in Every Detail
-            </h1>
-            <div className="w-20 h-1 bg-blue-600 mx-auto mb-6 animate-expandWidth"></div>
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed px-4">
-              Explore our portfolio of metal fabrication projects and manufacturing capabilities
-            </p>
-          </div>
+         <div className="text-center mb-12 sm:mb-20 animate-fadeInDown">
+  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+    {t('galleryPageTitle')}
+  </h1>
+  <div className="w-20 h-1 bg-blue-600 mx-auto mb-6 animate-expandWidth"></div>
+  <div className="text-base sm:text-lg text-slate-600 max-w-5xl mx-auto leading-relaxed px-4">
+    <p className="mb-4">
+      {t('galleryPageIntro1')} <span className="text-blue-600">{t('galleryPageIntro2')}</span> {t('galleryPageIntro3')} <span className="text-blue-600">{t('galleryPageIntro4')}</span>{t('galleryPageIntro5')}
+    </p>
+    <p>
+      {t('galleryPageIntro6')}
+    </p>
+  </div>
+</div>
 
           <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
             {galleryImages.map((image, index) => (
@@ -122,53 +129,53 @@ export default function Gallery() {
 
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-overlayFadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm animate-overlayFadeIn"
           onClick={handleClose}
         >
-          <div className="relative w-full h-full flex flex-col items-center justify-center p-4 sm:p-6" onClick={(e) => e.stopPropagation()}>
+          <div className="relative w-full h-full flex flex-col items-center justify-center p-2 sm:p-6" onClick={(e) => e.stopPropagation()}>
 
-            <div className="relative w-full h-full max-w-6xl flex items-center justify-center">
+            <div className="relative w-full h-full max-w-6xl flex items-center justify-center px-12 sm:px-16">
               <img
                 src={selectedImage.url.replace('w=800', 'w=1600')}
                 alt={selectedImage.title}
-                className="max-w-full max-h-[80vh] object-contain animate-imageFadeZoom rounded-xl shadow-2xl"
+                className="max-w-full max-h-[70vh] sm:max-h-[80vh] object-contain animate-imageFadeZoom rounded-lg sm:rounded-xl shadow-2xl"
               />
             </div>
 
             <button
               onClick={handleClose}
-              className="absolute top-6 right-6 text-white hover:text-white/80 p-3 transition-all duration-300 hover:scale-110 active:scale-95 z-20 animate-buttonSlideIn"
+              className="absolute top-3 right-3 sm:top-6 sm:right-6 text-white hover:text-white/80 p-2 sm:p-3 bg-black/30 rounded-full transition-all duration-300 hover:scale-110 active:scale-95 z-20 animate-buttonSlideIn"
               style={{ animationDelay: '0.3s' }}
               aria-label="Close"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
             <button
               onClick={handlePrev}
-              className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 transition-all duration-300 hover:scale-125 active:scale-95 z-20 animate-arrowSlideIn group"
+              className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 transition-all duration-300 hover:scale-125 active:scale-95 z-20 animate-arrowSlideIn group"
               style={{ animationDelay: '0.2s' }}
               aria-label="Previous image"
             >
-              <ChevronLeft className="w-8 h-8 sm:w-10 sm:h-10 group-hover:drop-shadow-lg transition-all" />
+              <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 group-hover:drop-shadow-lg transition-all" />
             </button>
 
             <button
               onClick={handleNext}
-              className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 transition-all duration-300 hover:scale-125 active:scale-95 z-20 animate-arrowSlideIn group"
+              className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 transition-all duration-300 hover:scale-125 active:scale-95 z-20 animate-arrowSlideIn group"
               style={{ animationDelay: '0.25s' }}
               aria-label="Next image"
             >
-              <ChevronRight className="w-8 h-8 sm:w-10 sm:h-10 group-hover:drop-shadow-lg transition-all" />
+              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 group-hover:drop-shadow-lg transition-all" />
             </button>
 
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-2xl z-20 border border-white/20 hover:border-white/40 transition-all animate-counterSlideUp">
-              <p className="text-white text-sm font-medium">
-                {currentIndex + 1} <span className="text-white/60">of</span> {galleryImages.length}
+            <div className="absolute bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 bg-white/15 backdrop-blur-md px-3 sm:px-5 py-1.5 sm:py-2 rounded-full shadow-2xl z-20 border border-white/25 hover:border-white/40 transition-all animate-counterSlideUp">
+              <p className="text-white text-sm sm:text-base font-semibold">
+                {currentIndex + 1} <span className="text-white/70 font-normal">{t('galleryImageCounter')}</span> {galleryImages.length}
               </p>
             </div>
 
-          
+
           </div>
         </div>
       )}
